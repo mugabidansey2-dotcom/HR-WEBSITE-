@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Salary day: an employee receiving a payslip envelope">
+<defs><linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f5ff"/><stop offset="1" stop-color="#dfe3f6"/></linearGradient></defs>
+<rect width="1200" height="600" fill="url(#w)"/><rect y="0" width="1200" height="10" fill="#1a0ea6"/><rect y="10" width="1200" height="4" fill="#d4141c"/>
+<rect x="70" y="70" width="150" height="180" rx="6" fill="#bfe0ff" stroke="#fff" stroke-width="8"/><line x1="145" y1="70" x2="145" y2="250" stroke="#fff" stroke-width="6"/><line x1="70" y1="160" x2="220" y2="160" stroke="#fff" stroke-width="6"/><rect x="980" y="70" width="150" height="180" rx="6" fill="#bfe0ff" stroke="#fff" stroke-width="8"/><line x1="1055" y1="70" x2="1055" y2="250" stroke="#fff" stroke-width="6"/><line x1="980" y1="160" x2="1130" y2="160" stroke="#fff" stroke-width="6"/><rect x="470" y="50" width="260" height="180" rx="12" fill="#fff" stroke="#1a0ea6" stroke-width="6"/><rect x="470" y="50" width="260" height="42" rx="8" fill="#1a0ea6"/><text x="600" y="79" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="bold" fill="#fff" text-anchor="middle">PAYSLIP</text><line x1="495" y1="120" x2="705" y2="120" stroke="#b9bde0" stroke-width="4"/><line x1="495" y1="146" x2="660" y2="146" stroke="#b9bde0" stroke-width="4"/><rect x="495" y="168" width="130" height="34" rx="5" fill="#d4141c"/><text x="560" y="192" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">NET PAY</text><circle cx="680" cy="185" r="20" fill="#2a8c5a"/><path d="M670 185 l8 9 l14 -17" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M247.2,520 L247.2,421.1 Q247.2,398.1 284.0,395.8 L376.0,395.8 Q412.8,398.1 412.8,421.1 L412.8,520Z" fill="#1a0ea6"/>
+<rect x="316.2" y="375.1" width="27.6" height="29.9" rx="9.2" fill="#4a2c1c"/>
+<polygon points="307.0,395.8 330,428.0 353.0,395.8" fill="#fff"/>
+<polygon points="323.1,402.7 336.9,402.7 340.3,462.5 330,474.0 319.7,462.5" fill="#12097a"/>
+<circle cx="293.2" cy="352.1" r="7.5" fill="#4a2c1c"/><circle cx="366.8" cy="352.1" r="7.5" fill="#4a2c1c"/>
+<ellipse cx="330" cy="347.5" rx="37.9" ry="44.8" fill="#4a2c1c"/>
+<path d="M290.9,342.9 Q288.6,294.6 330,296.9 Q371.4,294.6 369.1,342.9 Q350.7,317.6 330,319.9 Q309.3,317.6 290.9,342.9Z" fill="#171010"/>
+<circle cx="316.2" cy="345.2" r="4.1" fill="#120a08"/><circle cx="317.3" cy="344.1" r="1.4" fill="#fff"/>
+<line x1="308.2" y1="334.9" x2="324.2" y2="334.9" stroke="#171010" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="343.8" cy="345.2" r="4.1" fill="#120a08"/><circle cx="344.90000000000003" cy="344.1" r="1.4" fill="#fff"/>
+<line x1="335.8" y1="334.9" x2="351.8" y2="334.9" stroke="#171010" stroke-width="2.8" stroke-linecap="round"/>
+<path d="M325.4,352.1 Q330,359.0 334.6,352.1" stroke="#2a1510" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<path d="M315.1,367.0 Q330,382.0 344.9,367.0Z" fill="#fff" stroke="#3a1a10" stroke-width="2.3" stroke-linejoin="round"/><circle cx="870" cy="338.3" r="55.2" fill="#171010"/>
+<path d="M787.2,520 L787.2,421.1 Q787.2,398.1 824.0,395.8 L916.0,395.8 Q952.8,398.1 952.8,421.1 L952.8,520Z" fill="#d4141c"/>
+<rect x="856.2" y="375.1" width="27.6" height="29.9" rx="9.2" fill="#5a3825"/>
+<polygon points="847.0,395.8 870,428.0 893.0,395.8" fill="#fff"/>
+<circle cx="833.2" cy="352.1" r="7.5" fill="#5a3825"/><circle cx="906.8" cy="352.1" r="7.5" fill="#5a3825"/>
+<ellipse cx="870" cy="347.5" rx="37.9" ry="44.8" fill="#5a3825"/>
+<path d="M830.9,342.9 Q828.6,294.6 870,296.9 Q911.4,294.6 909.1,342.9 Q890.7,317.6 870,319.9 Q849.3,317.6 830.9,342.9Z" fill="#171010"/>
+<circle cx="856.2" cy="345.2" r="4.1" fill="#120a08"/><circle cx="857.3000000000001" cy="344.1" r="1.4" fill="#fff"/>
+<line x1="848.2" y1="334.9" x2="864.2" y2="334.9" stroke="#171010" stroke-width="2.8" stroke-linecap="round"/>
+<circle cx="883.8" cy="345.2" r="4.1" fill="#120a08"/><circle cx="884.9" cy="344.1" r="1.4" fill="#fff"/>
+<line x1="875.8" y1="334.9" x2="891.8" y2="334.9" stroke="#171010" stroke-width="2.8" stroke-linecap="round"/>
+<path d="M865.4,352.1 Q870,359.0 874.6,352.1" stroke="#2a1510" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<path d="M855.1,367.0 Q870,382.0 884.9,367.0Z" fill="#fff" stroke="#3a1a10" stroke-width="2.3" stroke-linejoin="round"/>
+<circle cx="832.1" cy="365.9" r="4.6" fill="#ffbc00"/><circle cx="907.9" cy="365.9" r="4.6" fill="#ffbc00"/><line x1="400" y1="385" x2="560" y2="365" stroke="#1a0ea6" stroke-width="24" stroke-linecap="round"/><circle cx="560" cy="365" r="13.200000000000001" fill="#4a2c1c"/><line x1="800" y1="385" x2="650" y2="365" stroke="#d4141c" stroke-width="24" stroke-linecap="round"/><circle cx="650" cy="365" r="13.200000000000001" fill="#5a3825"/><rect x="565" y="335" width="90" height="62" rx="4" fill="#fff" stroke="#b9bde0" stroke-width="2"/><polyline points="565,335 610,370 655,335" fill="none" stroke="#b9bde0" stroke-width="3"/><circle cx="610" cy="372" r="9" fill="#ffbc00"/><rect y="500" width="1200" height="100" fill="#1a0ea6"/><rect y="500" width="1200" height="6" fill="#d4141c"/><ellipse cx="140" cy="492" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/><ellipse cx="140" cy="485" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/><ellipse cx="140" cy="478" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/><ellipse cx="140" cy="471" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/><ellipse cx="1060" cy="492" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/><ellipse cx="1060" cy="485" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/><ellipse cx="1060" cy="478" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/><ellipse cx="1060" cy="471" rx="22" ry="8" fill="#ffbc00" stroke="#c98f00"/></svg>

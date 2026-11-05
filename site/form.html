@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payroll | Bugema University Payroll</title><link rel="stylesheet" href="css/style.css"></head>
+<body class="page-form">
+<header><div class="wrap brand"><a href="index.html"><img src="images/logo.png" alt="Bugema University, Excellence in Service"></a></div>
+<nav><div class="wrap"><button id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button><div id="menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Calculation rules</a><a href="form.html" class="on">Payroll</a><a href="job-application.html">Job application</a><a href="contact.html">Contact</a></div></div></nav></header>
+<main>
+<section class="wrap"><h1>Payroll and payslips</h1>
+<div class="notice">Demonstration only. Data stays in this browser and is not sent to a server.</div>
+<div class="split">
+<form id="payForm" novalidate>
+<h2>Employee details</h2>
+<label>Full name<input name="name" required></label><span class="err"></span>
+<label>Employee ID<input name="id" required placeholder="e.g. BU-0142"></label><span class="err"></span>
+<label>Department<input name="dept" required></label><span class="err"></span>
+<label>Job title<input name="title" required></label><span class="err"></span>
+<label>Pay month<input name="month" type="month" required></label><span class="err"></span>
+<h2>Earnings (UGX)</h2>
+<label>Basic salary<input name="basic" type="number" min="0" step="any" required></label><span class="err"></span>
+<label>Housing allowance<input name="housing" type="number" min="0" step="any" value="0"></label><span class="err"></span>
+<label>Transport allowance<input name="transport" type="number" min="0" step="any" value="0"></label><span class="err"></span>
+<label>Other allowances<input name="other" type="number" min="0" step="any" value="0"></label><span class="err"></span>
+<h2>Deductions (UGX)</h2>
+<label>Loan, advance or other<input name="ded" type="number" min="0" step="any" value="0"></label><span class="err"></span>
+<p class="note">NSSF (5%) and PAYE are calculated automatically.</p>
+<button class="btn" type="submit">Calculate and add to payroll</button>
+</form>
+<div><h2>Payslip</h2><div id="payslip" class="slip"><p class="muted">Calculate an employee’s pay to see the payslip here.</p></div>
+<button class="btn ghost" id="printBtn" type="button" hidden>Print payslip</button></div>
+</div>
+<h2>Payroll summary</h2>
+<label class="inline">Search employees<input id="search" placeholder="Name, ID or department"></label>
+<div class="scroll"><table id="summary"><thead><tr><th>Employee</th><th>Month</th><th>Gross</th><th>Deductions</th><th>Net</th><th></th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+<button class="btn ghost" id="clearBtn" type="button">Clear all records</button></section>
+</main>
+<footer><div class="wrap">Bugema University Employee Payroll System. Student project demonstration.</div></footer>
+<script src="js/script.js"></script></body></html>
