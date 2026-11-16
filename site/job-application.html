@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bugema University - Job application form</title>
+<style>
+:root{--bg:#fff;--sheet:#fff;--ink:#182033;--muted:#626b7c;--line:#e1e5ef;--field:#f4f6fc;--accent:#050598;--accent-dark:#03035f;--gold:#ffbc00;color-scheme:light;--accent-ink:#fff;--danger:#b3261e;--soft:#f0f0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:32px 16px 64px}
+header{background:var(--sheet);border:1px solid var(--line);border-top:6px solid var(--gold);border-radius:18px;overflow:hidden;margin-bottom:20px}
+.brand{background:#fff;padding:14px 24px;display:flex;align-items:center;gap:16px;border-bottom:6px solid var(--accent)}
+.logo{display:block;height:68px;width:68px;flex:none}
+.rule{width:1px;align-self:stretch;background:var(--line)}
+.uni{font:500 26px/1.1 'Times New Roman',Georgia,serif;color:var(--accent);letter-spacing:.01em}
+.tag{font:400 19px/1.3 'Times New Roman',Georgia,serif;color:var(--muted)}
+.hd{padding:20px 28px 24px}
+h1{color:var(--accent-dark);letter-spacing:-.035em;font:700 clamp(28px,5vw,40px)/1.15 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0 0 8px}
+header p{margin:0;color:var(--muted);max-width:56ch}
+@media (max-width:640px){.hd{padding:16px}.brand{padding:12px 16px}.logo{height:52px;width:52px}.uni{font-size:19px}.tag{font-size:15px}}
+form{background:var(--sheet);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+fieldset{border:0;border-bottom:1px solid var(--line);margin:0;padding:28px 28px 24px;min-width:0}
+legend{float:left;width:100%;padding:0;margin:0 0 4px;font:600 22px/1.3 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+legend+*{clear:both}
+.hint{color:var(--muted);font-size:14px;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 20px}
+.full{grid-column:1/-1}
+label,.lbl{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.req::after{content:" *";color:var(--danger)}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:10px;padding:11px 12px;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:130px;resize:vertical}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
+input:hover,select:hover,textarea:hover{border-color:var(--muted)}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+input:user-invalid,select:user-invalid,textarea:user-invalid{border-color:var(--danger)}
+input[type=file]{padding:9px;cursor:pointer}
+input[type=file]::file-selector-button{font:inherit;font-weight:600;margin-right:12px;padding:6px 12px;border:0;border-radius:6px;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.choices{display:flex;flex-wrap:wrap;gap:8px 20px}
+.choices label{display:flex;align-items:center;gap:8px;font-weight:500;margin:0}
+.choices input,.check input{width:18px;height:18px;accent-color:var(--accent);padding:0}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.check input{margin-top:3px;flex:none}
+.entry{border:1px dashed var(--line);border-radius:10px;padding:18px;margin-bottom:14px;background:var(--field)}
+.entry input,.entry textarea,.entry select{background:var(--sheet)}
+.entry h3{margin:0 0 12px;font-size:15px;font-weight:600}
+.add{font:inherit;font-weight:600;color:var(--accent);background:var(--soft);border:1px solid transparent;border-radius:999px;padding:9px 14px;cursor:pointer}
+.add:hover{border-color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:22px 28px;background:var(--field)}
+.actions p{margin:0;color:var(--muted);font-size:14px;max-width:46ch}
+.submit{font:inherit;font-weight:700;font-size:16px;color:var(--accent-ink);background:var(--accent);border:0;border-radius:999px;padding:13px 28px;cursor:pointer;transition:transform .12s}
+.submit:hover{transform:translateY(-1px);background:var(--accent-dark)}
+.done{display:none;background:var(--soft);border:1px solid var(--accent);border-radius:14px;padding:24px;margin-top:20px}
+.done.show{display:block}
+.done h2{font:600 22px Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0 0 6px}
+.done p{margin:0}
+.note{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.4}
+.note.bad{color:var(--danger)}
+[hidden]{display:none!important}
+.phone{display:flex;gap:8px;align-items:stretch}
+.phone select{width:auto;flex:0 0 112px;padding-left:10px;padding-right:6px}
+.phone input[type=tel]{flex:1;min-width:0}
+@media (max-width:640px){.grid{grid-template-columns:1fr}fieldset{padding:22px 16px}.actions{padding:18px 16px}.submit{width:100%}}
+/* Live validation glow */
+input.is-valid,select.is-valid,textarea.is-valid{border-color:#1e8e3e;box-shadow:0 0 0 3px rgba(30,142,62,.22)}
+input.is-invalid,select.is-invalid,textarea.is-invalid{border-color:#d93025;box-shadow:0 0 0 3px rgba(217,48,37,.24)}
+.choices.is-valid,.check.is-valid{border-radius:10px;padding:8px 10px;box-shadow:0 0 0 3px rgba(30,142,62,.22);background:rgba(30,142,62,.04)}
+.choices.is-invalid,.check.is-invalid{border-radius:10px;padding:8px 10px;box-shadow:0 0 0 3px rgba(217,48,37,.24);background:rgba(217,48,37,.04)}
+input.is-valid:focus-visible,select.is-valid:focus-visible,textarea.is-valid:focus-visible{outline-color:#1e8e3e}
+input.is-invalid:focus-visible,select.is-invalid:focus-visible,textarea.is-invalid:focus-visible{outline-color:#d93025}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap"><link rel="stylesheet" href="css/chrome.css?v=3"><link rel="stylesheet" href="css/ratings.css?v=4"><link rel="stylesheet" href="css/social.css?v=7">
+<link rel="icon" href="images/bugema-seal.png"><meta property="og:type" content="website"><meta property="og:site_name" content="Bugema University Payroll"><meta property="og:title" content="Bugema University - Job application form"><meta property="og:description" content="Payroll and HR for Bugema University."><meta name="theme-color" content="#050598"></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="shell"><aside class="sidebar" id="sidebar" aria-label="Site navigation"><a class="side-brand" href="index.html" aria-label="Bugema University payroll home"><img src="images/bugema-seal.png" alt="Bugema University crest" class="brand-logo"><span class="brand-copy"><strong>BUGEMA UNIVERSITY</strong><span>Payroll &amp; HR</span></span></a>
+<nav id="primary-nav" class="primary-nav" aria-label="Main navigation"><p class="side-label">Menu</p><a href="index.html"><span class="ico" aria-hidden="true">⌂</span>Home</a><a href="about.html"><span class="ico" aria-hidden="true">i</span>About</a><a href="vacancies.html"><span class="ico" aria-hidden="true">◆</span>Vacancies</a><a href="services.html"><span class="ico" aria-hidden="true">▤</span>Calculation rules</a><a class="active" aria-current="page" href="job-application.html"><span class="ico" aria-hidden="true">↗</span>Job application</a><a href="contact.html"><span class="ico" aria-hidden="true">✉</span>Contact</a><div data-admin hidden class="admin-group"><p class="side-label">Admin <span class="admin-badge">Admin only</span></p><a href="admin.html"><span class="ico" aria-hidden="true">▦</span>Dashboard</a><a href="form.html"><span class="ico" aria-hidden="true">▣</span>Payroll</a><a href="users.html"><span class="ico" aria-hidden="true">☺</span>Users<span data-reset-count></span></a><a href="admin.html#ratings"><span class="ico" aria-hidden="true">★</span>Visitor ratings</a><a href="admin.html#announcements"><span class="ico" aria-hidden="true">✎</span>Announcements</a><a href="admin.html#content"><span class="ico" aria-hidden="true">⚙</span>Site content</a></div></nav>
+<div class="side-account"><div data-guest><a class="side-btn" href="login.html">Log in</a><p>No account? <a href="signup.html">Sign up</a></p></div><div data-user hidden><p id="sideUser"></p><a class="side-btn" href="#" id="logoutLink">Log out</a></div></div></aside><div class="content"><div class="topbar"><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="sidebar">☰ Menu</button><a class="top-brand" href="index.html"><img src="images/bugema-seal.png" alt="">BUGEMA UNIVERSITY</a></div>
+<main id="main">
+<div class="wrap">
+<header>
+<div class="brand"><img class="logo" src="images/hr-logo.png" alt="Bugema University seal"><span class="rule"></span><div class="bt"><div class="uni">BUGEMA UNIVERSITY</div><div class="tag">Excellence In Service</div></div></div>
+<div class="hd">
+<h1>Job application form</h1>
+<p>Tell us about yourself and your experience. Fields marked with * are required, and it takes about 10 minutes.</p>
+</div>
+</header>
+
+<form id="app" novalidate><input type="hidden" name="reference" id="appRef">
+
+<fieldset>
+<legend>Personal details</legend>
+<p class="hint">Use the name that appears on your ID.</p>
+<div class="grid">
+<div><label class="req" for="fn">First name</label><input id="fn" name="first_name" autocomplete="given-name" placeholder="e.g. Amina" required></div>
+<div><label class="req" for="ln">Last name</label><input id="ln" name="last_name" autocomplete="family-name" placeholder="e.g. Nakato" required></div>
+<div><label class="req" for="em">Email address</label><input id="em" type="email" name="email" autocomplete="email" placeholder="name@example.com" required></div>
+<div><label class="req" for="ph">Phone number</label><div class="phone"><select id="ph-cc" name="phone_code" aria-label="Country code"><option value="+256" title="Uganda" selected>UG +256</option><option value="+254" title="Kenya">KE +254</option><option value="+255" title="Tanzania">TZ +255</option><option value="+250" title="Rwanda">RW +250</option><option value="+257" title="Burundi">BI +257</option><option value="+211" title="South Sudan">SS +211</option><option value="+243" title="DR Congo">CD +243</option><option value="+251" title="Ethiopia">ET +251</option><option value="+252" title="Somalia">SO +252</option><option value="+234" title="Nigeria">NG +234</option><option value="+233" title="Ghana">GH +233</option><option value="+27" title="South Africa">ZA +27</option><option value="+260" title="Zambia">ZM +260</option><option value="+263" title="Zimbabwe">ZW +263</option><option value="+265" title="Malawi">MW +265</option><option value="+20" title="Egypt">EG +20</option><option value="+44" title="United Kingdom">GB +44</option><option value="+1" title="USA / Canada">US +1</option><option value="+971" title="UAE">AE +971</option><option value="+91" title="India">IN +91</option><option value="+86" title="China">CN +86</option><option value="+49" title="Germany">DE +49</option><option value="+33" title="France">FR +33</option></select><input id="ph" type="tel" name="phone_number" inputmode="tel" autocomplete="tel-national" maxlength="15" placeholder="e.g. 700000000" required><input type="hidden" name="phone" id="ph-full"></div></div>
+<div><label for="dob">Date of birth</label><input id="dob" type="date" name="dob"></div>
+<div><span class="lbl req" id="gn-l">Gender</span><div class="choices" role="radiogroup" aria-labelledby="gn-l"><label><input type="radio" name="gender" value="Male" required> Male</label><label><input type="radio" name="gender" value="Female"> Female</label></div></div>
+<div class="full"><label class="req" for="ad">Street address</label><input id="ad" name="address" autocomplete="street-address" placeholder="Plot 12, Example Road" required></div>
+<div><label class="req" for="ct">City</label><input id="ct" name="city" autocomplete="address-level2" placeholder="e.g. Kampala" required></div>
+<div><label class="req" for="co">Country</label><input id="co" name="country" autocomplete="country-name" placeholder="e.g. Uganda" required></div>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>The role</legend>
+<p class="hint">Tell us what you're applying for and when you could start.</p>
+<div class="grid">
+<div><label class="req" for="po">Position applied for</label><input id="po" name="position" placeholder="e.g. Network Technician" required></div>
+<div><label for="dp">Department</label><input id="dp" name="department" placeholder="e.g. IT Support"></div>
+<div><label class="req" for="et">Employment type</label><select id="et" name="employment_type" required><option value="">Select an option</option><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option></select></div>
+<div><label for="sl">Expected salary (per month)</label><input id="sl" name="salary" inputmode="numeric" placeholder="e.g. 2,500,000 UGX"></div>
+<div><label class="req" for="sd">Earliest start date</label><input id="sd" type="date" name="start_date" required></div>
+<div><label for="hd">How did you hear about us?</label><select id="hd" name="source"><option value="">Select an option</option><option>Company website</option><option>Job board</option><option>Social media</option><option>Referral</option><option>Other</option></select></div>
+<div class="full"><span class="lbl req">Are you legally allowed to work in this country?</span><div class="choices"><label><input type="radio" name="work_auth" value="yes" required> Yes</label><label><input type="radio" name="work_auth" value="no"> No</label></div></div>
+<div class="full"><span class="lbl">Are you willing to relocate or travel?</span><div class="choices"><label><input type="checkbox" name="reloc" value="relocate"> Relocate</label><label><input type="checkbox" name="reloc" value="travel"> Travel</label><label><input type="checkbox" name="reloc" value="remote"> Prefer remote work</label></div></div>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Education</legend>
+<p class="hint">Start with your highest qualification.</p>
+<div id="edu">
+<div class="entry"><h3>Qualification 1</h3><div class="grid">
+<div><label class="req" for="e1i">Institution</label><input id="e1i" name="edu_school[]" placeholder="e.g. Makerere University" required></div>
+<div><label class="req" for="e1d">Degree or certificate</label><input id="e1d" name="edu_degree[]" placeholder="e.g. BSc Computer Science" required></div>
+<div><label for="e1f">Field of study</label><input id="e1f" name="edu_field[]" placeholder="e.g. Networking"></div>
+<div><label for="e1y">Year completed</label><input id="e1y" type="number" min="1950" max="2035" name="edu_year[]" placeholder="e.g. 2024"></div>
+</div></div>
+</div>
+<button type="button" class="add" data-add="edu">Add another qualification</button>
+</fieldset>
+
+<fieldset>
+<legend>Work experience</legend>
+<p class="hint">List your most recent job first. Leave blank if this is your first application.</p>
+<div id="job">
+<div class="entry"><h3>Job 1</h3><div class="grid">
+<div><label for="j1c">Employer</label><input id="j1c" name="job_company[]" placeholder="e.g. Acme Communications"></div>
+<div><label for="j1t">Job title</label><input id="j1t" name="job_title[]" placeholder="e.g. Junior Network Engineer"></div>
+<div><label for="j1s">Start date</label><input id="j1s" type="month" name="job_start[]"></div>
+<div><label for="j1e">End date</label><input id="j1e" type="month" name="job_end[]"></div>
+<div class="full"><label for="j1r">Main duties and achievements</label><textarea id="j1r" name="job_duties[]" placeholder="Describe what you did, the tools you used, and what you achieved."></textarea></div>
+<div class="full"><label for="j1l">Reason for leaving</label><input id="j1l" name="job_reason[]" placeholder="e.g. Contract ended"></div>
+</div></div>
+</div>
+<button type="button" class="add" data-add="job">Add another job</button>
+</fieldset>
+
+<fieldset>
+<legend>Skills and links</legend>
+<div class="grid">
+<div class="full"><label for="sk">Key skills</label><textarea id="sk" name="skills" placeholder="e.g. Cisco Packet Tracer, subnetting, Windows Server, customer support"></textarea></div>
+<div><label for="lg">Languages spoken</label><input id="lg" name="languages" placeholder="e.g. English, Luganda"></div>
+<div><label for="li">LinkedIn profile</label><input id="li" type="url" name="linkedin" placeholder="https://linkedin.com/in/yourname"></div>
+<div class="full"><label for="pf">Portfolio or website</label><input id="pf" type="url" name="portfolio" placeholder="https://yourportfolio.com"></div>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>References</legend>
+<p class="hint">Two people who can speak about your work, such as a manager or lecturer.</p>
+<div class="grid">
+<div><label class="req" for="r1n">Reference 1: full name</label><input id="r1n" name="ref1_name" placeholder="e.g. Dr. John Okello" required></div>
+<div><label class="req" for="r1p">Position and company</label><input id="r1p" name="ref1_role" placeholder="e.g. Lecturer, Makerere University" required></div>
+<div><label class="req" for="r1e">Email</label><input id="r1e" type="email" name="ref1_email" placeholder="john@example.com" required></div>
+<div><label for="r1t">Phone</label><div class="phone"><select id="r1t-cc" name="ref1_phone_code" aria-label="Country code"><option value="+256" title="Uganda" selected>UG +256</option><option value="+254" title="Kenya">KE +254</option><option value="+255" title="Tanzania">TZ +255</option><option value="+250" title="Rwanda">RW +250</option><option value="+257" title="Burundi">BI +257</option><option value="+211" title="South Sudan">SS +211</option><option value="+243" title="DR Congo">CD +243</option><option value="+251" title="Ethiopia">ET +251</option><option value="+252" title="Somalia">SO +252</option><option value="+234" title="Nigeria">NG +234</option><option value="+233" title="Ghana">GH +233</option><option value="+27" title="South Africa">ZA +27</option><option value="+260" title="Zambia">ZM +260</option><option value="+263" title="Zimbabwe">ZW +263</option><option value="+265" title="Malawi">MW +265</option><option value="+20" title="Egypt">EG +20</option><option value="+44" title="United Kingdom">GB +44</option><option value="+1" title="USA / Canada">US +1</option><option value="+971" title="UAE">AE +971</option><option value="+91" title="India">IN +91</option><option value="+86" title="China">CN +86</option><option value="+49" title="Germany">DE +49</option><option value="+33" title="France">FR +33</option></select><input id="r1t" type="tel" name="ref1_phone_number" inputmode="tel" autocomplete="tel-national" maxlength="15" placeholder="e.g. 700000000"><input type="hidden" name="ref1_phone" id="r1t-full"></div></div>
+<div><label for="r2n">Reference 2: full name</label><input id="r2n" name="ref2_name" placeholder="e.g. Sarah Namuli"></div>
+<div><label for="r2p">Position and company</label><input id="r2p" name="ref2_role" placeholder="e.g. IT Manager, Acme Communications"></div>
+<div><label for="r2e">Email</label><input id="r2e" type="email" name="ref2_email" placeholder="sarah@example.com"></div>
+<div><label for="r2t">Phone</label><div class="phone"><select id="r2t-cc" name="ref2_phone_code" aria-label="Country code"><option value="+256" title="Uganda" selected>UG +256</option><option value="+254" title="Kenya">KE +254</option><option value="+255" title="Tanzania">TZ +255</option><option value="+250" title="Rwanda">RW +250</option><option value="+257" title="Burundi">BI +257</option><option value="+211" title="South Sudan">SS +211</option><option value="+243" title="DR Congo">CD +243</option><option value="+251" title="Ethiopia">ET +251</option><option value="+252" title="Somalia">SO +252</option><option value="+234" title="Nigeria">NG +234</option><option value="+233" title="Ghana">GH +233</option><option value="+27" title="South Africa">ZA +27</option><option value="+260" title="Zambia">ZM +260</option><option value="+263" title="Zimbabwe">ZW +263</option><option value="+265" title="Malawi">MW +265</option><option value="+20" title="Egypt">EG +20</option><option value="+44" title="United Kingdom">GB +44</option><option value="+1" title="USA / Canada">US +1</option><option value="+971" title="UAE">AE +971</option><option value="+91" title="India">IN +91</option><option value="+86" title="China">CN +86</option><option value="+49" title="Germany">DE +49</option><option value="+33" title="France">FR +33</option></select><input id="r2t" type="tel" name="ref2_phone_number" inputmode="tel" autocomplete="tel-national" maxlength="15" placeholder="e.g. 700000000"><input type="hidden" name="ref2_phone" id="r2t-full"></div></div>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Identification and payment details</legend>
+<p class="hint">These details are personal and sensitive. Enter them carefully and make sure they are correct.</p>
+<div class="grid">
+<div><label class="req" for="nin">National ID number (NIN)</label><input id="nin" name="nin" maxlength="14" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="14 characters, e.g. CM86052102EFAF" required><small class="note">14 characters: starts with CM or CF, then 8 digits, then 4 letters or digits.</small></div>
+<div><label class="req" for="nini">Photo of your National ID</label><input id="nini" type="file" name="nin_image" accept="image/jpeg,image/png" required><small class="note" id="nini-note">JPG or PNG, up to 5 MB. Make sure the NIN is clearly readable.</small></div>
+<div><label class="req" for="nssf">NSSF account number</label><input id="nssf" name="nssf" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="Digits only, e.g. 1234567890" required><small class="note">Digits only, between 6 and 12 numbers.</small></div>
+<div><label class="req" for="bk">Bank name</label><select id="bk" name="bank_name" required><option value="">Select your bank</option><option>Absa Bank Uganda</option><option>Bank of Africa Uganda</option><option>Centenary Bank</option><option>DFCU Bank</option><option>Ecobank Uganda</option><option>Equity Bank Uganda</option><option>Housing Finance Bank</option><option>KCB Bank Uganda</option><option>Opportunity Bank</option><option>Orient Bank</option><option>PostBank Uganda</option><option>Stanbic Bank Uganda</option><option>Standard Chartered Bank Uganda</option><option>Other</option></select></div>
+<div class="full" id="bko-wrap" hidden><label class="req" for="bko">Name of your bank</label><input id="bko" name="bank_name_other" placeholder="Type the name of your bank"></div>
+<div><label class="req" for="bb">Bank branch</label><input id="bb" name="bank_branch" placeholder="e.g. Kampala Road" required></div>
+<div><label class="req" for="an">Account name</label><input id="an" name="account_name" autocomplete="off" placeholder="Name exactly as on the account" required><small class="note">Must match the name on your bank account.</small></div>
+<div><label class="req" for="ac">Account number</label><input id="ac" name="account_number" inputmode="numeric" autocomplete="off" maxlength="16" placeholder="Digits only" required><small class="note">Digits only, between 8 and 16 numbers.</small></div>
+<div><label class="req" for="ac2">Confirm account number</label><input id="ac2" name="account_number_confirm" inputmode="numeric" autocomplete="off" maxlength="16" placeholder="Type the account number again" required></div>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Documents and cover letter</legend>
+<div class="grid">
+<div><label class="req" for="cv">Resume or CV</label><input id="cv" type="file" name="cv" accept=".pdf,.doc,.docx" required></div>
+<div><label for="cl">Other documents</label><input id="cl" type="file" name="docs" accept=".pdf,.doc,.docx,.jpg,.png" multiple></div>
+<div class="full"><label class="req" for="cvl">Why do you want this job?</label><textarea id="cvl" name="cover_letter" placeholder="Tell us what draws you to this role and what you'd bring to the team." required></textarea></div>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Declaration</legend>
+<div class="grid">
+<label class="check full"><input type="checkbox" name="truth" required><span>I confirm the information in this application is true and complete, and I understand false information may lead to rejection or dismissal.</span></label>
+<label class="check full"><input type="checkbox" name="consent" required><span>I agree that you may store my details and contact my references for this application.</span></label>
+<div><label class="req" for="sg">Full name as signature</label><input id="sg" name="signature" placeholder="Type your full name" required></div>
+<div><label class="req" for="sdt">Date</label><input id="sdt" type="date" name="sign_date" required></div>
+</div>
+</fieldset>
+
+<p id="send-error" class="note bad" role="alert" hidden style="padding:14px 28px 0;margin:0"></p>
+<div class="actions">
+<p>Check your details before sending. You can't change them afterwards.</p>
+<button type="submit" class="submit">Submit application</button>
+</div>
+</form>
+
+<div class="done" id="done" role="status" tabindex="-1">
+<h2>Application received</h2>
+<p>Thanks, <span id="who"></span>. We'll email you at <span id="mail"></span> once we've reviewed it.</p><p>Your reference number is <strong id="refNo"></strong>. Please quote it if you contact HR about this application.</p>
+</div>
+</div>
+
+<script>
+var f=document.getElementById('app'),n={edu:1,job:1};
+var d0=new Date(),al='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',rs='';for(var q=0;q<4;q++)rs+=al[Math.floor(Math.random()*al.length)];
+document.getElementById('appRef').value='BU-'+d0.getFullYear()+('0'+(d0.getMonth()+1)).slice(-2)+('0'+d0.getDate()).slice(-2)+'-'+rs;
+document.querySelectorAll('.add').forEach(function(b){b.addEventListener('click',function(){
+var k=b.dataset.add,box=document.getElementById(k),first=box.firstElementChild.cloneNode(true);n[k]++;
+first.querySelector('h3').textContent=(k==='edu'?'Qualification ':'Job ')+n[k];
+first.querySelectorAll('input,textarea').forEach(function(el){el.value='';el.removeAttribute('id');el.required=false;el.classList.remove('is-valid','is-invalid');delete el.dataset.touched});
+first.querySelectorAll('label').forEach(function(l){l.removeAttribute('for');l.classList.remove('req')});
+box.appendChild(first);first.querySelector('input').focus();
+})});
+f.addEventListener('submit',function(e){
+e.preventDefault();
+if(!f.checkValidity()){f.reportValidity();return}
+window.__sendApplication(function(){
+document.getElementById('who').textContent=f.first_name.value;
+document.getElementById('mail').textContent=f.email.value;document.getElementById('refNo').textContent=document.getElementById('appRef').value;
+var d=document.getElementById('done');d.classList.add('show');f.style.display='none';d.focus();window.scrollTo(0,0);
+});
+});
+</script>
+<script>
+(function(){try{var q=new URLSearchParams(location.search);[['position','po'],['department','dp']].forEach(function(p){var v=q.get(p[0]),el=document.getElementById(p[1]);if(v&&el&&!el.value){el.value=v;}});}catch(e){}})();
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id)};
+var nin=$('nin'),nssf=$('nssf'),ac=$('ac'),ac2=$('ac2'),an=$('an'),img=$('nini'),note=$('nini-note'),bk=$('bk'),bko=$('bko'),wrap=$('bko-wrap');
+function digits(el){el.value=el.value.replace(/\D/g,'')}
+function check(el,ok,msg){el.setCustomValidity(ok?'':msg)}
+function vNin(){nin.value=nin.value.replace(/\s/g,'').toUpperCase();
+check(nin,/^C[MF][0-9]{8}[A-Z0-9]{4}$/.test(nin.value),'Enter a valid 14-character NIN, for example CM86052102EFAF.')}
+function vNssf(){digits(nssf);check(nssf,/^[0-9]{6,12}$/.test(nssf.value),'NSSF number must be 6 to 12 digits.')}
+function vAc(){digits(ac);check(ac,/^[0-9]{8,16}$/.test(ac.value),'Account number must be 8 to 16 digits.');vAc2()}
+function vAc2(){digits(ac2);check(ac2,ac2.value===ac.value,'The account numbers do not match.')}
+function vAn(){check(an,/^[A-Za-z][A-Za-z .'\-]{2,}$/.test(an.value.trim()),'Enter the account name using letters only.')}
+function vImg(){var f=img.files[0];note.classList.remove('bad');
+if(!f){check(img,false,'Please upload a photo of your National ID.');return}
+var okType=/^image\/(jpeg|png)$/.test(f.type);
+if(!okType){check(img,false,'Only JPG or PNG images are allowed.');note.textContent='Only JPG or PNG images are allowed.';note.classList.add('bad');return}
+if(f.size>5*1024*1024){check(img,false,'The image must be 5 MB or smaller.');note.textContent='That image is too large. The limit is 5 MB.';note.classList.add('bad');return}
+check(img,true,'');note.textContent='Selected: '+f.name+' ('+(f.size/1048576).toFixed(2)+' MB)'}
+function vBank(){var o=bk.value==='Other';wrap.hidden=!o;bko.required=o;if(!o)bko.value=''}
+nin.addEventListener('input',vNin);nssf.addEventListener('input',vNssf);ac.addEventListener('input',vAc);ac2.addEventListener('input',vAc2);an.addEventListener('input',vAn);img.addEventListener('change',vImg);bk.addEventListener('change',vBank);
+vNin();vNssf();vAc();vAc2();vAn();vImg();vBank();
+})();
+</script>
+<script>
+(function(){
+var form=document.getElementById('app');
+function target(el){
+if(el.type==='radio')return el.closest('.choices');
+if(el.type==='checkbox')return el.required?el.closest('.check'):null;
+return el;
+}
+function status(el){
+if(el.disabled||el.type==='hidden'||el.closest('[hidden]'))return null;
+if(el.type==='radio'){
+var g=form.querySelectorAll('input[type=radio][name="'+el.name+'"]'),req=false,any=false;
+g.forEach(function(r){if(r.required)req=true;if(r.checked)any=true});
+if(!req)return null;return any?'valid':'invalid';
+}
+if(el.type==='checkbox')return el.required?(el.checked?'valid':'invalid'):null;
+if(el.type==='file'){if(!el.files.length&&!el.required)return null;return el.checkValidity()?'valid':'invalid'}
+if(!el.required&&el.value==='')return null;
+return el.checkValidity()?'valid':'invalid';
+}
+function paint(el){
+var t=target(el);if(!t)return;
+var st=status(el);
+t.classList.remove('is-valid','is-invalid');
+if(st)t.classList.add('is-'+st);
+}
+function touch(el){el.dataset.touched='1';if(el.type==='radio'){form.querySelectorAll('input[type=radio][name="'+el.name+'"]').forEach(function(r){r.dataset.touched='1'})}}
+function refresh(){
+form.querySelectorAll('input,select,textarea').forEach(function(el){if(el.dataset.touched)paint(el)});
+}
+function handler(e){
+var el=e.target;
+if(!el.matches||!el.matches('input,select,textarea'))return;
+touch(el);
+setTimeout(refresh,0);
+}
+form.addEventListener('input',handler);
+form.addEventListener('change',handler);
+form.addEventListener('focusout',handler);
+form.addEventListener('submit',function(){
+form.querySelectorAll('input,select,textarea').forEach(function(el){touch(el)});
+refresh();
+});
+})();
+</script>
+<script>
+(function(){
+[['ph','phone',true],['r1t','ref1_phone',false],['r2t','ref2_phone',false]].forEach(function(c){
+var inp=document.getElementById(c[0]),sel=document.getElementById(c[0]+'-cc'),full=document.getElementById(c[0]+'-full');
+if(!inp||!sel)return;
+function run(){
+var d=inp.value.replace(/\D/g,'');
+if(inp.value!==d)inp.value=d;
+var n=d.replace(/^0+/,''),code=sel.value,ok=true,msg='';
+if(n===''){ok=!c[2];msg='Enter your phone number.'}
+else if(code==='+256'){ok=/^[0-9]{9}$/.test(n);msg='A Ugandan number has 9 digits after +256, for example 700000000.'}
+else{ok=/^[0-9]{6,12}$/.test(n);msg='Enter a valid phone number (6 to 12 digits) without the country code.'}
+inp.setCustomValidity(ok?'':msg);
+full.value=(ok&&n)?code+n:'';
+}
+inp.addEventListener('input',run);sel.addEventListener('change',run);run();
+});
+})();
+</script>
+<script>
+(function(){
+/* Paste the Google Apps Script "Web app URL" between the quotes below. */
+var ENDPOINT='https://script.google.com/macros/s/AKfycbzwA4gZGnR9Uxb_rUjm2-wz1DmpAilPCoSoTDp76T2lhGXPie39WQZ-FBz_qebE1uuK/exec';
+var MAX_TOTAL=15*1024*1024;
+var form=document.getElementById('app'),err=document.getElementById('send-error');
+function show(m){err.textContent=m;err.hidden=false;err.scrollIntoView({block:'center',behavior:'smooth'})}
+function read(file,field){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res({field:field,name:file.name,type:file.type,data:String(r.result).split(',')[1]})};r.onerror=rej;r.readAsDataURL(file)})}
+window.__sendApplication=function(done){
+err.hidden=true;
+if(ENDPOINT.indexOf('PASTE_')===0){show('This form is not connected to the HR email yet. Please contact HR directly.');return}
+var list=[];
+[['cv','cv'],['cl','docs'],['nini','nin_image']].forEach(function(p){var el=document.getElementById(p[0]);if(el)Array.prototype.forEach.call(el.files,function(f){list.push([f,p[1]])})});
+var total=list.reduce(function(a,x){return a+x[0].size},0);
+if(total>MAX_TOTAL){show('Your files are too large to send together. Please keep the total under 15 MB.');return}
+var btn=form.querySelector('.submit'),label=btn.textContent;
+btn.disabled=true;btn.textContent='Sending…';
+var fields={};
+Array.prototype.forEach.call(form.elements,function(el){
+if(!el.name||el.type==='file'||el.type==='submit'||el.type==='button'||el.name==='account_number_confirm')return;
+if((el.type==='radio'||el.type==='checkbox')&&!el.checked)return;
+var k=el.name,v=el.value;
+if(/\[\]$/.test(k)){(fields[k]=fields[k]||[]).push(v);return}
+if(v==='')return;
+if(fields[k]===undefined)fields[k]=v;else if(Array.isArray(fields[k]))fields[k].push(v);else fields[k]=[fields[k],v];
+});
+Promise.all(list.map(function(x){return read(x[0],x[1])})).then(function(files){
+return fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({fields:fields,files:files})});
+}).then(function(r){return r.json()}).then(function(j){
+if(!j||!j.ok)throw new Error(j&&j.error||'failed');
+done();
+}).catch(function(){
+show('Sorry, your application could not be sent. Please check your connection and try again.');
+btn.disabled=false;btn.textContent=label;
+});
+};
+})();
+</script>
+</main>
+<footer class="site-footer"><div class="container footer-main"><a class="footer-plate" href="index.html"><img src="images/logo.png" alt="Bugema University, Excellence in Service"></a><p>Clear salary calculations and payslips for the university community.</p><div class="footer-links"><a href="services.html">Calculation rules</a><a href="vacancies.html">Vacancies</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="login.html">Login</a><a href="contact.html">Contact</a></div></div><!-- Social icons: Font Awesome Free (CC BY 4.0), https://fontawesome.com/license/free --><div class="footer-social"><div class="container"><span>Follow us</span><div class="social"><a href="https://www.youtube.com/results?search_query=bugema+university" target="_blank" rel="noopener noreferrer" aria-label="Bugema University on YouTube (opens in a new tab)" title="YouTube"><svg class="si" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg></a><a href="https://www.linkedin.com/search/results/all/?keywords=Bugema%20University&amp;origin=RICH_QUERY_SUGGESTION&amp;heroEntityKey=urn%3Ali%3Aorganization%3A8989498&amp;position=0" target="_blank" rel="noopener noreferrer" aria-label="Bugema University on LinkedIn (opens in a new tab)" title="LinkedIn"><svg class="si" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8c0-14.3 5.7-27.9 15.8-38S39.6 0 53.8 0s27.9 5.7 38 15.8 15.8 23.8 15.8 38c0 29.7-24.1 54.3-53.8 54.3M447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Bugema University on Facebook (opens in a new tab)" title="Facebook"><svg class="si" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M80 299.3V512h116V299.3h86.5l18-97.8H196v-34.6c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4.4 37 1.2V7.9C291.4 4 256.4 0 236.2 0 129.3 0 80 50.5 80 159.4v42.1H14v97.8z"/></svg></a><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="Bugema University on TikTok (opens in a new tab)" title="TikTok"><svg class="si" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M448.5 209.9c-44 .1-87-13.6-122.8-39.2v178.7c0 33.1-10.1 65.4-29 92.6s-45.6 48-76.6 59.6-64.8 13.5-96.9 5.3-60.9-25.9-82.7-50.8-35.3-56-39-88.9 2.9-66.1 18.6-95.2 40-52.7 69.6-67.7 62.9-20.5 95.7-16v89.9c-15-4.7-31.1-4.6-46 .4s-27.9 14.6-37 27.3-14 28.1-13.9 43.9 5.2 31 14.5 43.7 22.4 22.1 37.4 26.9 31.1 4.8 46-.1 28-14.4 37.2-27.1 14.2-28.1 14.2-43.8V0h88c-.1 7.4.6 14.9 1.9 22.2 3.1 16.3 9.4 31.9 18.7 45.7s21.3 25.6 35.2 34.6c19.9 13.1 43.2 20.1 67 20.1V210z"/></svg></a></div></div></div><div class="footer-bottom"><div class="container"><span>© <span data-year></span> Bugema University</span><span>Payroll &amp; HR portal</span></div></div></footer></div></div><div class="scrim"></div><script src="js/auth.js?v=3"></script><script src="js/ratings.js?v=4"></script></body></html>

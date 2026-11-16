@@ -1,0 +1,11 @@
+/* Social links in the footer */
+.footer-social{background:#02024a;border-top:1px solid rgba(255,188,0,.35);font-family:Inter,ui-sans-serif,system-ui,"Segoe UI",Arial,sans-serif}
+.footer-social .container{display:flex;align-items:center;justify-content:center;gap:18px;padding-top:18px;padding-bottom:18px;flex-wrap:wrap}
+.footer-social span{color:#d7d9ff;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.social{display:flex;gap:12px}
+.social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;border:1px solid rgba(255,255,255,.45);transition:background .2s,color .2s,border-color .2s,transform .15s}
+.social a:hover{background:#ffbc00;border-color:#ffbc00;color:#02024a;transform:translateY(-2px)}
+.social a:focus-visible{outline:3px solid #ffbc00;outline-offset:3px}
+.social .si{width:18px;height:18px;fill:currentColor}
+@media(prefers-reduced-motion:reduce){.social a{transition:none}}
+@media print{.footer-social{display:none}}
